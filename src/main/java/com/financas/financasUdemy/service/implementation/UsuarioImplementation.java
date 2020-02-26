@@ -25,15 +25,15 @@ public class UsuarioImplementation implements UsuarioService {
 	@Override
 	public Usuario autenticar(String email, String senha) {
 		Optional<Usuario> usuario = usuarioRepository.findByEmail(email);
-		
-		if(!usuario.isPresent()) {
+
+		if (!usuario.isPresent()) {
 			throw new ErroAutenticacao("Email de usuario nao encontrado");
 		}
-		
-		if(!usuario.get().getSenha().equals(senha)) {
+
+		if (!usuario.get().getSenha().equals(senha)) {
 			throw new ErroAutenticacao("Senha invalida");
 		}
-		
+
 		return usuario.get();
 	}
 
@@ -47,7 +47,7 @@ public class UsuarioImplementation implements UsuarioService {
 	@Override
 	public void validarEmail(String email) {
 		boolean existe = usuarioRepository.existsByEmail(email);
-		if(existe) {
+		if (existe) {
 			throw new RegraNegocioException("Já existe um usuario com esse email");
 		}
 
