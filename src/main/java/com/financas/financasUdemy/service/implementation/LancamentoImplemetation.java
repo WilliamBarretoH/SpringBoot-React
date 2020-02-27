@@ -3,6 +3,7 @@ package com.financas.financasUdemy.service.implementation;
 import java.math.BigDecimal;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
 
 import javax.transaction.Transactional;
 
@@ -76,10 +77,15 @@ public class LancamentoImplemetation implements LancamentoService {
 		if (lancamento.getUsuario() == null || lancamento.getUsuario().getId() == null) {
 			throw new RegraNegocioException("informe um usuario valido");
 		}
-		if(lancamento.getValor() == null || lancamento.getValor().compareTo(BigDecimal.ZERO) < 1) {
+		if (lancamento.getValor() == null || lancamento.getValor().compareTo(BigDecimal.ZERO) < 1) {
 			throw new RegraNegocioException("informe um valor valido");
 
 		}
 
+	}
+
+	@Override
+	public Optional<Lancamento> obterPorID(Long ID) {
+		return lancamentoRepository.findById(ID);
 	}
 }
