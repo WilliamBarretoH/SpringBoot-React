@@ -14,6 +14,8 @@ UsuarioServiceImplemetation. Correçao do erro-01
 
 **Seventh Commit** = Começo do desenvolvimento do controller lancamento, LancamentoResource. Implementado o metodo ObterPorID no Service Lancamento.
 
+**Eighth Commit** = Implementado os metodos Salvar e Atualizar no Controller Lancamento e o metodo obterPorID no Service Lancamento.
+
 Error-01: não esta conectando na base de dados.// Corrigido, na relaçao @ManyToOne
 entre a entidade Usuario e Lançamento deve-se usar @JoinColumn ao inves de
 @Column
