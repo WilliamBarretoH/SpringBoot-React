@@ -49,7 +49,7 @@ public class LancamentoImplemetation implements LancamentoService {
 	}
 
 	@Override
-	@Transactional()
+	@Transactional
 	public List<Lancamento> buscar(Lancamento lancamentoFiltro) {
 		Example ex = Example.of(lancamentoFiltro,
 				ExampleMatcher.matching().withIgnoreCase().withStringMatcher(StringMatcher.CONTAINING));
